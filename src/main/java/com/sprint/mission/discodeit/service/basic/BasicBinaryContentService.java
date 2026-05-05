@@ -66,4 +66,10 @@ public class BasicBinaryContentService implements BinaryContentService {
                 .createdAt(binaryContent.getCreatedAt())
                 .build();
     }
+
+    @Override
+    public BinaryContent findEntity(UUID id) {
+        return binaryContentRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("BinaryContent not found"));
+    }
 }
